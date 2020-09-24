@@ -2,10 +2,11 @@ package gofmt256
 
 import (
 	"fmt"
-	"github.com/pkg/errors"
 	"reflect"
 	"strconv"
 	"strings"
+
+	"github.com/pkg/errors"
 )
 
 const (
@@ -91,6 +92,9 @@ func makeLine(input reflect.Value) (line string, err error) {
 	fieldStructs := make(map[string]FieldStruct)
 	for i := 0; i < input.Type().NumField(); i++ {
 		field := input.Type().Field(i)
+		if !input.FieldByName(field.Name).CanInterface() {
+			continue
+		}
 		errLocation := "[" + field.Name + "] %s"
 		tag := field.Tag.Get(tagName)
 		subtags := strings.Split(tag, tagSep)

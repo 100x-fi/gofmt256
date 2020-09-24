@@ -9,6 +9,8 @@ type SubMerchantReportHeader struct {
 	EffectiveDate  string `gofmt256:"from=61,to=68"`
 	ServiceCode    string `gofmt256:"from=69,to=76"`
 	Spare          string `gofmt256:"from=77,to=256"`
+
+	unexportedField1 int
 }
 
 type SubMerchantReportBody struct {
@@ -29,6 +31,8 @@ type SubMerchantReportBody struct {
 	ChequeNo       string `gofmt256:"from=157,to=163"`
 	Amount         string `gofmt256:"from=164,to=176,align=R,padding='0'"`
 	Spare          string `gofmt256:"from=177,to=256"`
+
+	unexportedField1 int
 }
 
 type SubMerchantReportFooter struct {
@@ -41,6 +45,8 @@ type SubMerchantReportFooter struct {
 	TotalCreditAmount      string `gofmt256:"from=40,to=52,align=R,padding='0'"`
 	TotalCreditTransaction int    `gofmt256:"from=53,to=58,align=R,padding='0'"`
 	Spare                  string `gofmt256:"from=59,to=256"`
+
+	unexportedField2 int
 }
 
 func getSubMerchantReportHeader() SubMerchantReportHeader {
